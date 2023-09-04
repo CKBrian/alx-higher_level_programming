@@ -1,2 +1,2 @@
-#!/usr/bin/python3
-print("Hello brian from python")
+#!/bin/bash
+(echo "#!/usr/bin/python3" ; echo "print('Hello Brian from py')") > main.py ; chmod +x main.py ; PYFILE="./main.py" ; $PYFILE
