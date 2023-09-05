@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 /**
  * insert_node - inserts a new node to a linked list
  * @head: head node
@@ -14,11 +15,23 @@ listint_t *insert_node(listint_t **head, int number)
 	if (newnode == NULL)
 		return (NULL);
 	newnode->n = number;
+	newnode->next = NULL;
+	if (*head == NULL)
+	{
+		*head = newnode;
+		return (newnode);
+	}
+	if (temp->n > number)
+	{
+		newnode->next = *head;
+		*head = newnode;
+		return (newnode);
+	}
 	while (temp->next)
 	{
-		temp = temp->next;
-		if (temp->n == 4)
+		if (temp->next == NULL || temp->next->n > number)
 			break;
+		temp = temp->next;
 	}
 	newnode->next = temp->next;
 	temp->next = newnode;
