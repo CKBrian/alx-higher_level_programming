@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from add_0 import add
-a = 1
-b = 2
-rsum = add(a, b)
-print("{} + {} = {}\n".format(a, b, rsum), end="")
+if __name__ == "__main__":
+    a = 1
+    b = 2
+    rsum = add(a, b)
+    print("{} + {} = {}\n".format(a, b, rsum), end="")
