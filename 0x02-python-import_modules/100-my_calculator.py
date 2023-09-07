@@ -20,7 +20,7 @@ if __name__ == "__main__":
         print("{} {} {} = {}\n".format(a, argv[2], b, res), end="")
     elif argv[2] == '/':
         if b == 0:
-            res = 0
+            exit(1)
         else:
             res = a / b
         print("{} {} {} = {}\n".format(a, argv[2], b, res), end="")
