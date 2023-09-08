@@ -20,9 +20,9 @@ if __name__ == "__main__":
         print("{} {} {} = {}\n".format(a, argv[2], b, res), end="")
     elif argv[2] == '/':
         if b == 0:
-            exit(1)
+            exit(0)
         else:
-            res = a / b
+            res = int(a / b)
         print("{} {} {} = {}\n".format(a, argv[2], b, res), end="")
     else:
         print("Unknown operator. Available operators: +, -, * and /\n", end="")
