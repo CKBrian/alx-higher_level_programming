@@ -7,7 +7,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *top = *head;
-	int i, j, n, *list;
+	int i, j, k, *list;
 
 	for (i = 0; top != NULL; i++)
 		top = top->next;
@@ -21,15 +21,15 @@ int is_palindrome(listint_t **head)
 		list[j] = top->n;
 		top = top->next;
 	}
-	n = i - 1;
+	k = i - 1;
 	for (j = 0; j < i / 2; j++)
 	{
-		if (list[j] != list[n])
+		if (list[j] != list[k])
 		{
 			free(list);
 			return (0);
 		}
-		n--;
+		k--;
 	}
 	free(list);
 	return (1);
