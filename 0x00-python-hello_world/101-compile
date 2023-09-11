@@ -1,2 +1,4 @@
 #!/bin/bash
+export PYFILE=main.py
 python -m py_compile "$PYFILE"
+echo "Compiling $PYFILE ..."
