@@ -7,13 +7,13 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *top = *head;
-	int i, j, k, *list;
+	int i, j, k, list[1024];
 
 	for (i = 0; top != NULL; i++)
 		top = top->next;
-	list = malloc(sizeof(int) * i);
-	if (list == NULL)
-		return (0);
+	/*list = malloc(sizeof(int) * i);*/
+	/*if (list == NULL)*/
+	/*	return (0);*/
 
 	top = *head;
 	for (j = 0; j < i; j++)
@@ -26,11 +26,11 @@ int is_palindrome(listint_t **head)
 	{
 		if (list[j] != list[k])
 		{
-			free(list);
+			/*free(list);*/
 			return (0);
 		}
 		k--;
 	}
-	free(list);
+	/*free(list);*/
 	return (1);
 }
