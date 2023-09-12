@@ -7,7 +7,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *top = *head;
-	int i, j, k, list[1024];
+	int i, j, k, list[8024];
 
 	for (i = 0; top != NULL; i++)
 		top = top->next;
