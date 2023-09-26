@@ -51,7 +51,7 @@ class Square:
             print()
         for height in range(self.__size):
             for pos in range(self.__position[0]):
-                print("_", end="")
+                print(" ", end="")
             for length in range(self.__size):
                 print("#", end="")
             print()
