@@ -50,10 +50,14 @@ class SinglyLinkedList:
         newnode = Node(value, None)
         if self.head is None:
             self.head = newnode
+        elif self.head.data > newnode.data:
+            newnode.next_node = self.head
+            self.head = newnode
         else:
             temp = self.head
-            while temp.next_node:
+            while temp.next_node is not None and temp.next_node.data < value:
                 temp = temp.next_node
+            newnode.next_node = temp.next_node
             temp.next_node = newnode
 
     def __str__(self):
