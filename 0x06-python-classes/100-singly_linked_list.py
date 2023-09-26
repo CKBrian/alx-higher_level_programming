@@ -3,6 +3,8 @@
 
 
 class Node:
+    """ Defines a class named Node  """
+
     def __init__(self, data, next_node=None):
         """ Initiates a class Node
             Args:
@@ -38,6 +40,8 @@ class Node:
 
 
 class SinglyLinkedList:
+    """ Defines a class named SLL  """
+
     def __init__(self):
         """ Initiates a class SinglyLinkedList
             Args:
