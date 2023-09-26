@@ -49,6 +49,7 @@ class Square:
         """ Prints a square """
         if self.__size == 0:
             print()
+            return
         for pos_V in range(self.__position[1]):
             print()
         for height in range(self.__size):
