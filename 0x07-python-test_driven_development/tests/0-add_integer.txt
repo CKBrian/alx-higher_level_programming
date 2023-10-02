@@ -1,0 +1,32 @@
+The ``0_add_integer`` module
+========================
+
+using ``add_integer``
+------------------------
+	>>> from add_integer import add_integer
+
+	>>> add_integer(-1, 1999999999999999999999999999999999999999901)
+	1999999999999999999999999999999999999999900
+
+	>>> add_integer(1, -12121)
+	-12122
+
+	>>> add_integer(50, 456)
+	506
+
+	>>> add_integer(50, -456)
+	-406
+
+	>>> add_integer(50, -456j)
+	Traceback (most recent call last):
+	  ...
+	  	raise TypeError("b must be an integer")
+	TypeError: b must be an integer
+
+	>>> add_integer(50, )
+	148
+
+	>>> add_integer(50, None)
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
