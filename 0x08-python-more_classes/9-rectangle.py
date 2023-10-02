@@ -90,6 +90,6 @@ class Rectangle:
     def square(cls, size=0):
         """ returns a square based on size attribute """
         temp = cls()
-        temp.__width = size
-        temp.__height = size
+        temp.width = size
+        temp.height = size
         return temp
