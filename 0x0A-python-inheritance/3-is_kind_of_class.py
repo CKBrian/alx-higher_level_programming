@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" defines a class Mylist that inherits from list"""
+""" defines a function that determines the instance of an object"""
 
 
 def is_kind_of_class(obj, a_class):
