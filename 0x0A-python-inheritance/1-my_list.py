@@ -3,11 +3,7 @@
 
 
 class MyList(list):
-    """ MyList subclass """
-
-    def __init__(self):
-        """ initialises MyList subclass """
-        super().__init__()
+    """ implements sorted list print function """
 
     def print_sorted(self):
         """ print a sortend list of integers"""
