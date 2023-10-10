@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ ``11-student`` module that defines a class Student """
-from json import load
 
 
 class Student:
