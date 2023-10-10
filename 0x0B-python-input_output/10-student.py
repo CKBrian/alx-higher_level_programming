@@ -19,10 +19,13 @@ class Student:
     def to_json(self, attrs=None):
         """ retrieves a dictionary representation of a
             Student instance """
-        if not attrs:
-            return self.__dict__
-        for i in attrs:
-            if not isinstance(i, str):
+        try:
+            if not attrs:
                 return self.__dict__
+            for i in attrs:
+                if not isinstance(i, str):
+                    return self.__dict__
+        except Exception:
+           return self.__dict__
         s_dic = self.__dict__
         return {key: s_dic[key] for key in sorted(attrs) if key in s_dic}
