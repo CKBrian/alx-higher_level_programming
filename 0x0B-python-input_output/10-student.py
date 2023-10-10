@@ -19,5 +19,8 @@ class Student:
     def to_json(self, attrs=None):
         """ retrieves a dictionary representation of a
             Student instance """
-        s_dic = self.__dict__
-        return {key: s_dic[key] for key in sorted(attrs) if key in s_dic}
+        try:
+            s_dic = self.__dict__
+            return {key: s_dic[key] for key in sorted(attrs) if key in s_dic}
+        except Exception:
+            return self.__dict__
