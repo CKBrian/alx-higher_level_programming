@@ -22,4 +22,4 @@ class Student:
         if not attrs:
             return self.__dict__
         s_dic = self.__dict__
-        return {key: s_dic.get("key") for key in sorted(attrs) if key in s_dic}
+        return {key: s_dic[key] for key in sorted(attrs) if key in s_dic}
