@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""co"""
+"""o"""
 import random
 import sys
 from time import sleep

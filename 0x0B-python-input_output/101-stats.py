@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this defines a module that reads stdin line by line and computes metrics"""
+"""defines a module that reads stdin line by line and computes metrics"""
 from sys import stdin
 import signal
 
