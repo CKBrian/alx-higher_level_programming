@@ -3,30 +3,56 @@ The ``0_add_integer`` module
 
 using ``add_integer``
 ------------------------
->>> add_integer = __import__('0-add_integer').add_integer
->>> try:
-...     print(add_integer("School", 889))
-... except Exception as e:
-...     print(e)
-...
-a must be an integer
->>> try:
-...     print(add_integer([12, 14], 889))
-... except Exception as a:
-...     print(a)
-...
-a must be an integer
->>> try:
-...     print(add_integer(15.99199191, 889))
-... except Exception as a:
-...     print(a)
-...
-904
->>> print(add_integer(1, 2))
-3
->>> print(add_integer(100, -2))
-98
->>> print(add_integer(2))
-100
->>> print(add_integer(100.3, -2))
-98
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> try:
+	...     print(add_integer("School", 889))
+	... except Exception as e:
+	...     print(e)
+	...
+	a must be an integer
+	>>> try:
+	...     print(add_integer([12, 14], 889))
+	... except Exception as a:
+	...     print(a)
+	...
+	a must be an integer
+	>>> try:
+	...     print(add_integer(15.99199191, 889))
+	... except Exception as a:
+	...     print(a)
+	...
+	904
+	>>> print(add_integer(1, 2))
+	3
+	>>> print(add_integer(100, -2))
+	98
+	>>> print(add_integer(2))
+	100
+	>>> print(add_integer(100.3, -2))
+	98
+
+CASE: Test for  sum of infinite values
+	>>> try:
+	...         from math import inf
+	...         result = add_integer(inf, inf)
+	...         print(result)
+	... except OverflowError as e:
+	...         print(e)
+	...
+	Result must be an integer
+
+CASE: Test for  sum of None values
+
+	>>> try:
+	...     print(add_integer())
+	... except Exception as e:
+	...     print(e)
+	...
+	add_integer() missing 1 required positional argument: 'a'
+	>>> try:
+	...         print(add_integer(None))
+	... except Exception as e:
+	...         print(e)
+	...
+	a must be an integer
