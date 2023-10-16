@@ -32,22 +32,21 @@ def main():
     """ gets input from input stream """
     global total_size, my_dict
     line_count = 0
-    try:
-        while True:
-            if not stdin.isatty():
-                for line in stdin:
-                    my_list = line.split()
-                    if str(my_list[-2]) in my_dict:
-                        key = str(my_list[-2])
-                        my_dict[key] = my_dict[key] + 1
-                    line_count = line_count + 1
-                    total_size = total_size + int(my_list[-1])
-                    if line_count == 10:
-                        print_dict()
-                        line_count = 0
-    except KeyboardInterrupt:
-        print("Input termination by CTRL-C")
-
+# try:
+    while True:
+        if not stdin.isatty():
+            for line in stdin:
+                my_list = line.split()
+                if str(my_list[-2]) in my_dict:
+                    key = str(my_list[-2])
+                    my_dict[key] = my_dict[key] + 1
+                line_count = line_count + 1
+                total_size = total_size + int(my_list[-1])
+                if line_count == 10:
+                    print_dict()
+                    line_count = 0
+#   except ValueError:
+#       print("EOF when reading a line")
 
 if __name__ == "__main__":
     main()
