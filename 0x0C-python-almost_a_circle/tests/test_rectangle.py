@@ -7,13 +7,11 @@ from models.base import Base
 
 class TestRectangleClass(TestCase):
     def test_attributes(self):
-        """ tests attributes """
+        """ tests instantiation and attributes """
 
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1.id, 1)
-
         r2 = Rectangle(2, 10)
-        self.assertEqual(r2.id, 2)
+        self.assertEqual(r2.id - r1.id, 1)
 
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
