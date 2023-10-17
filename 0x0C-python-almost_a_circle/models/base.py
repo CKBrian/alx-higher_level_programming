@@ -9,12 +9,31 @@ from csv import DictReader
 
 
 class Base:
-    """ defines a base class for all python-almost_a_circle projects"""
+    """
+    defines a base class for all python-almost_a_circle projects
+
+    Attributes:
+        __nb_objects (int): The number of objects created.
+
+    Methods:
+        __init__(self, id=None): Initializes a new instance of the Base class.
+        to_json_string(list_dictionaries): Returns the JSON string
+                             representation of a list of dictionaries.
+        save_to_file(cls, list_objs): Writes the JSON string representation
+                                      of list_objs to a file.
+        from_json_string(json_string): Returns a list of dictionaries
+                                       from a JSON string.
+        create(cls, **dictionary): Creates an instance with attributes set
+                                   from a dictionary.
+        load_from_file(cls): Loads instances from a JSON file.
+        save_to_file_csv(cls, list_objs): Serializes dictionary objects to CSV
+        load_from_file_csv(cls): Deserializes CSV into dictionary objects.
+    """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ initializes the class Base"""
+        """ initializes a new class Base instance"""
         if id is not None:
             self.id = id
         else:
