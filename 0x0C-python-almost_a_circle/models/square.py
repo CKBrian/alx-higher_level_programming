@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" module defines a square  """
+""" module defines a square
+"""
 from models.rectangle import Rectangle
 
 
