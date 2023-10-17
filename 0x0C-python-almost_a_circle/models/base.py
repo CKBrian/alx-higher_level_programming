@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" defines the `base` module containing a class Base"""
+""" defines the `base` module containing a class Base
+"""
 from json import dumps
 from json import loads
 from os import path
