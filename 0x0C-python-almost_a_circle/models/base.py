@@ -4,8 +4,7 @@
 from json import dumps
 from json import loads
 from os import path
-from csv import DictWriter
-from csv import DictReader
+import csv
 
 
 class Base:
@@ -94,12 +93,14 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """ Serializes dictionary objects to CSV """
+        """ Serializes dictionary objects to CSV
+            list_objs (list): list of object instances of a class
+        """
         filename = "{}.csv".format(cls.__name__)
         list_dicts = [obj.to_dictionary() for obj in list_objs]
 
         with open(filename, "w", newline="") as f:
-            writer = DictWriter(f, fieldnames=list_dicts[0].keys())
+            writer = csv.DictWriter(f, fieldnames=list_dicts[0].keys())
             writer.writeheader()
             for row in list_dicts:
                 writer.writerow(row)
@@ -114,7 +115,7 @@ class Base:
             return list_objs
 
         with open(filename, "r", newline="") as f:
-            reader = DictReader(f)
+            reader = csv.DictReader(f)
             for row in reader:
                 dict_item = {k: int(v) if v.isdigit()
                              else v for k, v in row.items()}
