@@ -28,6 +28,8 @@ class Base:
         load_from_file(cls): Loads instances from a JSON file.
         save_to_file_csv(cls, list_objs): Serializes dictionary objects to CSV
         load_from_file_csv(cls): Deserializes CSV into dictionary objects.
+    Class:
+        DictWriter: A class for writing dictionaries to CSV files.
     """
 
     __nb_objects = 0
