@@ -68,6 +68,10 @@ class TestRectangleClass(TestCase):
             Rectangle(10, 20, 10, -34)
         with self.assertRaises(ValueError):
             Rectangle(10, 20, -10, 34)
+        with self.assertRaises(TypeError):
+            Rectangle(10, 20, "10", 34)
+        with self.assertRaises(TypeError):
+            Rectangle(10, 20, 10, "34")
 
     def test_area(self):
         """ tests Rectangle area """
