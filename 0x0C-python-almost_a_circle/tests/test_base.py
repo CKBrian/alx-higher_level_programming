@@ -25,26 +25,26 @@ class TestBaseClass(TestCase):
 
     def test_to_json_string(self):
         """ tests to_json_string static method """
-        json_str = Base.to_json_string(None) #exists
+        json_str = Base.to_json_string(None)
         self.assertEqual("[]", json_str)
 
-        json_str = Base.to_json_string([]) #exists
+        json_str = Base.to_json_string([])
         self.assertEqual("[]", json_str)
 
-        json_str = Base.to_json_string([ {'id': 12} ]) #returning a string exists
+        json_str = Base.to_json_string([{'id': 12}])
         self.assertIsInstance(json_str, str)
         self.assertEqual('[{"id": 12}]', json_str)
 
     def test_from_json_string(self):
         """ tests from_json_string static method """
-        json_list = Base.from_json_string(None) #exists
+        json_list = Base.from_json_string(None)
         self.assertEqual([], json_list)
 
-        json_list = Base.from_json_string("[]") #exists
+        json_list = Base.from_json_string("[]")
         self.assertEqual([], json_list)
 
-        json_list = Base.from_json_string('[{ "id": 89 }]') #exists
-        self.assertEqual([{ 'id': 89 }], json_list)
+        json_list = Base.from_json_string('[{"id": 89}]')
+        self.assertEqual([{'id': 89}], json_list)
 
 
 if __name__ == "__main__":

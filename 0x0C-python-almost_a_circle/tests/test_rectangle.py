@@ -3,19 +3,47 @@
 from unittest import TestCase
 from models.rectangle import Rectangle
 from models.base import Base
+from io import StringIO
+import sys
 
 
 class TestRectangleClass(TestCase):
-    def test_attributes(self):
+    def test_instantiation(self):
         """ tests instantiation and attributes """
+        # Test of Rectangle(10, 2) exists
+        output = StringIO()
+        sys.stdout = output
 
         r1 = Rectangle(10, 2)
-        r2 = Rectangle(2, 10)
+        print(r1)
+
+        sys.stdout = sys.__stdout__
+        print_res = output.getvalue()
+        self.assertEqual(print_res, "[Rectangle] (6) 0/0 - 10/2\n")
+
+        # Test of Rectangle(2, 10, 2) exists
+        r2 = Rectangle(2, 10, 2)
+        output = StringIO()
+        sys.stdout = output
+        print(r2)
+        print_res = output.getvalue()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(print_res, "[Rectangle] (7) 2/0 - 2/10\n")
+        self.assertIsInstance(r2, Base)
         self.assertEqual(r2.id - r1.id, 1)
 
-        r3 = Rectangle(10, 2, 0, 0, 12)
-        self.assertEqual(r3.id, 12)
+        # Test of Rectangle(2, 10, 2, 12) exists
+        r3 = Rectangle(2, 10, 2, 12)
+        output = StringIO()
+        sys.stdout = output
+        print(r3)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (8) 2/12 - 2/10\n")
+        self.assertEqual(r3.id, 8)
 
+        # Test of Rectangle(2, 10, 2, 12) exists
+        r4 = Rectangle(2, 10, 2, 12, 19)
+        self.assertEqual(r4.id, 19)
         self.assertTrue(issubclass(Rectangle, Base))
 
     def test_values(self):
