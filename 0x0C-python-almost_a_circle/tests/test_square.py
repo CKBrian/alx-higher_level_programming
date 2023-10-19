@@ -20,7 +20,7 @@ class TestSquareClass(TestCase):
 
         sys.stdout = sys.__stdout__
         print_res = output.getvalue()
-        self.assertEqual(print_res, "[Square] (20) 0/0 - 10\n")
+        self.assertEqual(print_res, "[Square] (23) 0/0 - 10\n")
 
         # Test of Square(2, 10) exists
         sr2 = Square(2, 10)
@@ -29,8 +29,8 @@ class TestSquareClass(TestCase):
         print(sr2)
         print_res = output.getvalue()
         sys.stdout = sys.__stdout__
-        self.assertEqual(print_res, "[Square] (21) 10/0 - 2\n")
-        self.assertEqual(sr2.id, 21)
+        self.assertEqual(print_res, "[Square] (24) 10/0 - 2\n")
+        self.assertEqual(sr2.id, 24)
 
         # Test of Square(2, 10, 22) exists
         sr3 = Square(2, 10, 22)
@@ -38,8 +38,8 @@ class TestSquareClass(TestCase):
         sys.stdout = output
         print(sr3)
         sys.stdout = sys.__stdout__
-        self.assertEqual(output.getvalue(), "[Square] (22) 10/22 - 2\n")
-        self.assertEqual(sr3.id, 22)
+        self.assertEqual(output.getvalue(), "[Square] (25) 10/22 - 2\n")
+        self.assertEqual(sr3.id, 25)
 
         # Test of Square(2, 10, 2, 12) exists
         r4 = Square(2, 10, 2, 212)
@@ -78,7 +78,7 @@ class TestSquareClass(TestCase):
         str1 = "[Square] (212) 6/2 - 4"
         self.assertEqual(str1, str(sr1))
 
-    def test_str(self):
+    def test_display(self):
         """ tests Square display method """
         # Tests Square(2).display()
         output = StringIO()
@@ -106,6 +106,52 @@ class TestSquareClass(TestCase):
 
         sys.stdout = sys.__stdout__
         self.assertEqual(output.getvalue(), "\n\n##\n##\n")
+
+    def test_update(self):
+        """ tests Square update method """
+        r1 = Square(10, 10, 10, 10)
+
+        r1.update(89)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Square] (89) 10/10 - 10\n")
+
+        r1.update(89, 2)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Square] (89) 10/10 - 2\n")
+
+        r1.update(89, 2, 3)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Square] (89) 3/10 - 2\n")
+
+        r1.update(89, 2, 3, 4)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Square] (89) 3/4 - 2\n")
+
+        r1.update(x=34, y=54)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Square] (89) 34/54 - 2\n")
+
+        r1.update(size=7, id=809, y=1)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Square] (809) 34/1 - 7\n")
 
 
 if __name__ == "__main__":

@@ -86,7 +86,7 @@ class TestRectangleClass(TestCase):
         str1 = "[Rectangle] (12) 2/1 - 4/6"
         self.assertEqual(str1, str(r1))
 
-    def test_str(self):
+    def test_diplay(self):
         """ tests Rectangle display method """
         # Tests Rectangle(3, 2, 0, 0, 23).display()
         output = StringIO()
@@ -114,6 +114,45 @@ class TestRectangleClass(TestCase):
 
         sys.stdout = sys.__stdout__
         self.assertEqual(output.getvalue(), "\n\n###\n###\n")
+
+    def test_update(self):
+        """ tests Rectangle update method """
+        r1 = Rectangle(10, 10, 10, 10, 10)
+
+        r1.update(89)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (89) 10/10 - 10/10\n")
+
+        r1.update(89, 2)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (89) 10/10 - 2/10\n")
+
+        r1.update(89, 2, 3)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (89) 10/10 - 2/3\n")
+
+        r1.update(89, 2, 3, 4)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (89) 4/10 - 2/3\n")
+
+        r1.update(89, 2, 3, 4, 5)
+        output = StringIO()
+        sys.stdout = output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (89) 4/5 - 2/3\n")
 
 
 if __name__ == "__main__":
