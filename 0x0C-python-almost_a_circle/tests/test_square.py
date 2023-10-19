@@ -78,6 +78,35 @@ class TestSquareClass(TestCase):
         str1 = "[Square] (212) 6/2 - 4"
         self.assertEqual(str1, str(sr1))
 
+    def test_str(self):
+        """ tests Square display method """
+        # Tests Square(2).display()
+        output = StringIO()
+        sys.stdout = output
+
+        Square(2).display()
+
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "##\n##\n")
+
+        # Tests Square(2, 2).display()
+        output = StringIO()
+        sys.stdout = output
+
+        Square(2, 2).display()
+
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "  ##\n  ##\n")
+
+        # Tests Square(2, 0, 2).display()
+        output = StringIO()
+        sys.stdout = output
+
+        Square(2, 0, 2).display()
+
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "\n\n##\n##\n")
+
 
 if __name__ == "__main__":
     unittest.main()

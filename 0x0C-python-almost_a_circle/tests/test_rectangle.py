@@ -86,6 +86,35 @@ class TestRectangleClass(TestCase):
         str1 = "[Rectangle] (12) 2/1 - 4/6"
         self.assertEqual(str1, str(r1))
 
+    def test_str(self):
+        """ tests Rectangle display method """
+        # Tests Rectangle(3, 2, 0, 0, 23).display()
+        output = StringIO()
+        sys.stdout = output
+
+        Rectangle(3, 2, 0, 0, 23).display()
+
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "###\n###\n")
+
+        # Tests Rectangle(3, 2, 2, 0, 24).display()
+        output = StringIO()
+        sys.stdout = output
+
+        Rectangle(3, 2, 2, 0, 24).display()
+
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "  ###\n  ###\n")
+
+        # Tests Rectangle(3, 2, 0, 2, 25).display()
+        output = StringIO()
+        sys.stdout = output
+
+        Rectangle(3, 2, 0, 2, 25).display()
+
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "\n\n###\n###\n")
+
 
 if __name__ == "__main__":
     unittest.main()
