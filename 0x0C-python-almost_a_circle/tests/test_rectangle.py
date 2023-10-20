@@ -168,11 +168,6 @@ class TestRectangleClass(TestCase):
         obj_list = [Rectangle.to_dictionary(rect) for rect in output]
         self.assertEqual(obj_list, [])
 
-        Rectangle.save_to_file([])
-        output = Rectangle.load_from_file()
-        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
-        self.assertEqual(obj_list, [])
-
         r1 = Rectangle(10, 2, 1, 9, 30)
         r2 = Rectangle(2, 4)
         Rectangle.save_to_file([r1, r2])
@@ -181,6 +176,11 @@ class TestRectangleClass(TestCase):
         expected = [{'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10},
                     {'x': 0, 'y': 0, 'id': 10, 'height': 4, 'width': 2}]
         self.assertEqual(obj_list, expected)
+
+        Rectangle.save_to_file([])
+        output = Rectangle.load_from_file()
+        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
+        self.assertEqual(obj_list, [])
 
     def test_create(self):
         """ tests create class method """

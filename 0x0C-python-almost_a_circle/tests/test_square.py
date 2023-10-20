@@ -166,11 +166,6 @@ class TestSquareClass(TestCase):
         obj_list = [Square.to_dictionary(obj) for obj in output]
         self.assertEqual(obj_list, [])
 
-        Square.save_to_file([])
-        output = Square.load_from_file()
-        obj_list = [Square.to_dictionary(obj) for obj in output]
-        self.assertEqual(obj_list, [])
-
         sr1 = Square(10, 1, 9, 31)
         sr2 = Square(2, 4)
         Square.save_to_file([sr1, sr2])
@@ -179,6 +174,11 @@ class TestSquareClass(TestCase):
         expected = [{"id": 31, "size": 10, "x": 1, "y": 9},
                     {"id": 30, "size": 2, "x": 4, "y": 0}]
         self.assertEqual(obj_list, expected)
+
+        Square.save_to_file([])
+        output = Square.load_from_file()
+        obj_list = [Square.to_dictionary(obj) for obj in output]
+        self.assertEqual(obj_list, [])
 
     def test_create(self):
         """ tests create class method """
