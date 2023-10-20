@@ -205,6 +205,10 @@ class TestSquareClass(TestCase):
         s2 = Square.create(**obj_dict)
         self.assertEqual(s2.to_dictionary(), obj_dict)
 
+        obj_dict = { 'id': 99, 'size': 1, 'x': 2, 'y': 3 }
+        s2 = Square.create(**obj_dict)
+        self.assertEqual(s2.to_dictionary(), obj_dict)
+
         obj_dict = {'x': 1, 'y': 9, 'id': 130, 'height': 2, 'width': 10}
         r2 = Rectangle.create(**obj_dict)
         self.assertEqual(r2.to_dictionary(), obj_dict)
