@@ -4,7 +4,7 @@ from unittest import TestCase
 from models.rectangle import Rectangle
 from models.base import Base
 from io import StringIO
-import sys
+import sys, os
 
 
 class TestRectangleClass(TestCase):
@@ -163,10 +163,14 @@ class TestRectangleClass(TestCase):
 
     def test_save_to_file(self):
         """ tests save_to_file class method """
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
         Rectangle.save_to_file(None)
         output = Rectangle.load_from_file()
         obj_list = [Rectangle.to_dictionary(rect) for rect in output]
         self.assertEqual(obj_list, [])
+        with open("Rectangle.json", "r") as files:
+            self.assertEqual(files.read(), '[]')
 
         r1 = Rectangle(10, 2, 1, 9, 30)
         r2 = Rectangle(2, 4)

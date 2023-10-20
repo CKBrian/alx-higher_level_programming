@@ -5,7 +5,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 from io import StringIO
-import sys
+import sys, os
 
 
 class TestSquareClass(TestCase):
@@ -161,10 +161,13 @@ class TestSquareClass(TestCase):
 
     def test_save_to_file(self):
         """ tests save_to_file class method """
+        os.remove("Square.json")
         Square.save_to_file(None)
         output = Square.load_from_file()
         obj_list = [Square.to_dictionary(obj) for obj in output]
         self.assertEqual(obj_list, [])
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.read(), '[]')
 
         sr1 = Square(10, 1, 9, 31)
         sr2 = Square(2, 4)
