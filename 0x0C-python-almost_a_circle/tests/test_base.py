@@ -4,6 +4,8 @@ from unittest import TestCase
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+from io import StringIO
+import sys
 
 
 class TestBaseClass(TestCase):

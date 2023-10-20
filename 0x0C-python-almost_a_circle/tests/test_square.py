@@ -153,6 +153,32 @@ class TestSquareClass(TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(output.getvalue(), "[Square] (809) 34/1 - 7\n")
 
+    def test_to_dictionary(self):
+        """ tests Square to_dictionary method """
+        sr1 = Square(10, 1, 9, 123)
+        sr1_dict = sr1.to_dictionary()
+        self.assertEqual(sr1_dict, {'x': 1, 'y': 9, 'id': 123, 'size': 10})
+
+    def test_save_to_file(self):
+        """ tests save_to_file class method """
+        r1 = Rectangle(10, 2, 1, 9, 30)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        output = Rectangle.load_from_file()
+        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
+        expected = [{'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10},
+                    {'x': 0, 'y': 0, 'id': 26, 'height': 4, 'width': 2}]
+        self.assertEqual(obj_list, expected)
+
+        sr1 = Square(10, 1, 9, 31)
+        sr2 = Square(2, 4)
+        Square.save_to_file([sr1, sr2])
+        output = Square.load_from_file()
+        obj_list = [Square.to_dictionary(obj) for obj in output]
+        expected = [{"id": 31, "size": 10, "x": 1, "y": 9},
+                    {"id": 29, "size": 2, "x": 4, "y": 0}]
+        self.assertEqual(obj_list, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
