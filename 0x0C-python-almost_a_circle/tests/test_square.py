@@ -20,7 +20,7 @@ class TestSquareClass(TestCase):
 
         sys.stdout = sys.__stdout__
         print_res = output.getvalue()
-        self.assertEqual(print_res, "[Square] (23) 0/0 - 10\n")
+        self.assertEqual(print_res, "[Square] (24) 0/0 - 10\n")
 
         # Test of Square(2, 10) exists
         sr2 = Square(2, 10)
@@ -29,8 +29,8 @@ class TestSquareClass(TestCase):
         print(sr2)
         print_res = output.getvalue()
         sys.stdout = sys.__stdout__
-        self.assertEqual(print_res, "[Square] (24) 10/0 - 2\n")
-        self.assertEqual(sr2.id, 24)
+        self.assertEqual(print_res, "[Square] (25) 10/0 - 2\n")
+        self.assertEqual(sr2.id, 25)
 
         # Test of Square(2, 10, 22) exists
         sr3 = Square(2, 10, 22)
@@ -38,8 +38,8 @@ class TestSquareClass(TestCase):
         sys.stdout = output
         print(sr3)
         sys.stdout = sys.__stdout__
-        self.assertEqual(output.getvalue(), "[Square] (25) 10/22 - 2\n")
-        self.assertEqual(sr3.id, 25)
+        self.assertEqual(output.getvalue(), "[Square] (26) 10/22 - 2\n")
+        self.assertEqual(sr3.id, 26)
 
         # Test of Square(2, 10, 2, 12) exists
         r4 = Square(2, 10, 2, 212)
@@ -167,7 +167,7 @@ class TestSquareClass(TestCase):
         output = Rectangle.load_from_file()
         obj_list = [Rectangle.to_dictionary(rect) for rect in output]
         expected = [{'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10},
-                    {'x': 0, 'y': 0, 'id': 26, 'height': 4, 'width': 2}]
+                    {'x': 0, 'y': 0, 'id': 27, 'height': 4, 'width': 2}]
         self.assertEqual(obj_list, expected)
 
         sr1 = Square(10, 1, 9, 31)
@@ -176,8 +176,18 @@ class TestSquareClass(TestCase):
         output = Square.load_from_file()
         obj_list = [Square.to_dictionary(obj) for obj in output]
         expected = [{"id": 31, "size": 10, "x": 1, "y": 9},
-                    {"id": 29, "size": 2, "x": 4, "y": 0}]
+                    {"id": 30, "size": 2, "x": 4, "y": 0}]
         self.assertEqual(obj_list, expected)
+
+    def test_create(self):
+        """ tests create class method """
+        obj_dict = {'id': 131, 'size': 10, 'x': 1, 'y': 9}
+        s2 = Square.create(**obj_dict)
+        self.assertEqual(s2.to_dictionary(), obj_dict)
+
+        obj_dict = {'x': 1, 'y': 9, 'id': 130, 'height': 2, 'width': 10}
+        r2 = Rectangle.create(**obj_dict)
+        self.assertEqual(r2.to_dictionary(), obj_dict)
 
 
 if __name__ == "__main__":
