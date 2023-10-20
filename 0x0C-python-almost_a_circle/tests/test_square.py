@@ -161,6 +161,16 @@ class TestSquareClass(TestCase):
 
     def test_save_to_file(self):
         """ tests save_to_file class method """
+        Rectangle.save_to_file(None)
+        output = Rectangle.load_from_file()
+        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
+        self.assertEqual(obj_list, [])
+
+        Rectangle.save_to_file([])
+        output = Rectangle.load_from_file()
+        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
+        self.assertEqual(obj_list, [])
+
         r1 = Rectangle(10, 2, 1, 9, 30)
         r2 = Rectangle(2, 4)
         Rectangle.save_to_file([r1, r2])
@@ -169,6 +179,16 @@ class TestSquareClass(TestCase):
         expected = [{'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10},
                     {'x': 0, 'y': 0, 'id': 27, 'height': 4, 'width': 2}]
         self.assertEqual(obj_list, expected)
+
+        Square.save_to_file([])
+        output = Square.load_from_file()
+        obj_list = [Square.to_dictionary(obj) for obj in output]
+        self.assertEqual(obj_list, [])
+
+        Square.save_to_file(None)
+        output = Square.load_from_file()
+        obj_list = [Square.to_dictionary(obj) for obj in output]
+        self.assertEqual(obj_list, [])
 
         sr1 = Square(10, 1, 9, 31)
         sr2 = Square(2, 4)
