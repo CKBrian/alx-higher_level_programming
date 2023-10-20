@@ -5,7 +5,8 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 from io import StringIO
-import sys, os
+import sys
+import os
 
 
 class TestSquareClass(TestCase):
@@ -161,7 +162,8 @@ class TestSquareClass(TestCase):
 
     def test_save_to_file(self):
         """ tests save_to_file class method """
-        os.remove("Square.json")
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
         Square.save_to_file(None)
         output = Square.load_from_file()
         obj_list = [Square.to_dictionary(obj) for obj in output]
