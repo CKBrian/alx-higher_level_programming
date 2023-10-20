@@ -161,12 +161,12 @@ class TestSquareClass(TestCase):
 
     def test_save_to_file(self):
         """ tests save_to_file class method """
-        Square.save_to_file([])
+        Square.save_to_file(None)
         output = Square.load_from_file()
         obj_list = [Square.to_dictionary(obj) for obj in output]
         self.assertEqual(obj_list, [])
 
-        Square.save_to_file(None)
+        Square.save_to_file([])
         output = Square.load_from_file()
         obj_list = [Square.to_dictionary(obj) for obj in output]
         self.assertEqual(obj_list, [])
