@@ -72,9 +72,12 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ returns an instance with all attributes already set """
-        obj = cls(1, 1, 1, 1)
-        obj.update(**dictionary)
-        return obj
+        if cls.__name__ == "Rectangle":
+            new_obj = cls(1, 1)
+        if cls.__name__ == "Square":
+            new_obj = cls(1)
+        new_obj.update(**dictionary)
+        return new_obj
 
     @classmethod
     def load_from_file(cls):
