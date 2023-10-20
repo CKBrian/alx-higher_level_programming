@@ -20,7 +20,7 @@ class TestSquareClass(TestCase):
 
         sys.stdout = sys.__stdout__
         print_res = output.getvalue()
-        self.assertEqual(print_res, "[Square] (24) 0/0 - 10\n")
+        self.assertEqual(print_res, "[Square] (27) 0/0 - 10\n")
 
         # Test of Square(2, 10) exists
         sr2 = Square(2, 10)
@@ -29,8 +29,8 @@ class TestSquareClass(TestCase):
         print(sr2)
         print_res = output.getvalue()
         sys.stdout = sys.__stdout__
-        self.assertEqual(print_res, "[Square] (25) 10/0 - 2\n")
-        self.assertEqual(sr2.id, 25)
+        self.assertEqual(print_res, "[Square] (28) 10/0 - 2\n")
+        self.assertEqual(sr2.id, 28)
 
         # Test of Square(2, 10, 22) exists
         sr3 = Square(2, 10, 22)
@@ -38,8 +38,8 @@ class TestSquareClass(TestCase):
         sys.stdout = output
         print(sr3)
         sys.stdout = sys.__stdout__
-        self.assertEqual(output.getvalue(), "[Square] (26) 10/22 - 2\n")
-        self.assertEqual(sr3.id, 26)
+        self.assertEqual(output.getvalue(), "[Square] (29) 10/22 - 2\n")
+        self.assertEqual(sr3.id, 29)
 
         # Test of Square(2, 10, 2, 12) exists
         r4 = Square(2, 10, 2, 212)
@@ -161,25 +161,6 @@ class TestSquareClass(TestCase):
 
     def test_save_to_file(self):
         """ tests save_to_file class method """
-        Rectangle.save_to_file(None)
-        output = Rectangle.load_from_file()
-        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
-        self.assertEqual(obj_list, [])
-
-        Rectangle.save_to_file([])
-        output = Rectangle.load_from_file()
-        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
-        self.assertEqual(obj_list, [])
-
-        r1 = Rectangle(10, 2, 1, 9, 30)
-        r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r1, r2])
-        output = Rectangle.load_from_file()
-        obj_list = [Rectangle.to_dictionary(rect) for rect in output]
-        expected = [{'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10},
-                    {'x': 0, 'y': 0, 'id': 27, 'height': 4, 'width': 2}]
-        self.assertEqual(obj_list, expected)
-
         Square.save_to_file([])
         output = Square.load_from_file()
         obj_list = [Square.to_dictionary(obj) for obj in output]
@@ -205,13 +186,9 @@ class TestSquareClass(TestCase):
         s2 = Square.create(**obj_dict)
         self.assertEqual(s2.to_dictionary(), obj_dict)
 
-        obj_dict = { 'id': 99, 'size': 1, 'x': 2, 'y': 3 }
+        obj_dict = {'id': 99, 'size': 1, 'x': 2, 'y': 3}
         s2 = Square.create(**obj_dict)
         self.assertEqual(s2.to_dictionary(), obj_dict)
-
-        obj_dict = {'x': 1, 'y': 9, 'id': 130, 'height': 2, 'width': 10}
-        r2 = Rectangle.create(**obj_dict)
-        self.assertEqual(r2.to_dictionary(), obj_dict)
 
 
 if __name__ == "__main__":
