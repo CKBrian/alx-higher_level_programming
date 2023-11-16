@@ -1,2 +1,9 @@
--- creates the table id_not_null on MySQL server id INT with the default value 1 and name VARCHAR(256).
-CREATE TABLE IF NOT EXISTS id_not_null (id INT DEFAULT 1, name VARCHAR(256));
+-- lists all shows contained in hbtn_0d_tvshows without a genre linked.
+-- Each record displays: tv_shows.title - tv_show_genres.genre_id
+-- Results sorted in ascending order by tv_shows.title and tv_show_genres.genre_id
+SELECT tv_shows.title, tv_show_genres.genre_id
+FROM tv_shows
+LEFT JOIN tv_show_genres
+ON tv_shows.id = tv_show_genres.show_id
+WHERE tv_show_genres.genre_id IS NULL
+ORDER BY tv_shows.title, tv_show_genres.genre_id;
