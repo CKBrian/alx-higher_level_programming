@@ -10,7 +10,7 @@ ALTER TABLE
 	COLLATE utf8mb4_unicode_ci;
 ALTER TABLE
     first_table
-	MODIFY name
+	CHANGE name name
 	VARCHAR(256)
 	CHAR SET utf8mb4
 	COLLATE utf8mb4_unicode_ci;
