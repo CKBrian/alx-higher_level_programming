@@ -1,9 +1,10 @@
--- creates the database hbtn_0d_usa and the table cities (in the database hbtn_0d_usa)
--- cities id INT unique, auto generated, not null and is a primary key, state_id INT, not null and must be a FOREIGN KEY that references to id of the states table, name VARCHAR(256) not null
-CREATE DATABASE IF NOT EXISTS hbtn_od_usa;
-USE hbtn_0d_usa;
-CREATE TABLE IF NOT EXISTS cities (
-		id INT UNIQUE NOT NULL PRIMARY KEY AUTO_INCREMENT ,
-		state_id INT NOT NULL FOREIGN KEY (state_id) REFERENCES states(id),
-		name VARCHAR(256) NOT NULL
-		);
+-- lists all Comedy shows in the database hbtn_0d_tvshows.
+-- The tv_genres table contains only one record where name = Comedy (but the id can be different)
+-- Each record should display: tv_shows.title
+-- Results must be sorted in ascending order by the show title
+SELECT tv_shows.title
+FROM tv_shows
+INNER JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
+INNER JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+WHERE tv_genres.name = "Comedy"
+ORDER BY tv_shows.title ASC;
