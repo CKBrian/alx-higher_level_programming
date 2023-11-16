@@ -1,5 +1,11 @@
--- creates the database hbtn_0d_usa and the table states (in the database hbtn_0d_usa)
--- states table id INT unique, auto generated, can’t be null and is a primary key name VARCHAR(256) can’t be null
-CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
-USE hbtn_0d_usa;
-CREATE TABLE IF NOT EXISTS states (id INT UNIQUE NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(256) NOT NULL);
+-- uses the hbtn_0d_tvshows database to lists all genres of the show Dexter.
+-- The tv_shows table contains only one record where title = Dexter (but the id can be different)
+-- Each record should display: tv_genres.name
+-- Results must be sorted in ascending order by the genre name
+SELECT tv_genres.name
+FROM tv_genres
+INNER JOIN tv_show_genres
+ON tv_genres.id = tv_show_genres.genre_id
+WHERE tv_show_genres.show_id IN (SELECT id FROM tv_shows WHERE tv_shows.title = "Dexter")
+GROUP BY tv_genres.name
+ORDER BY tv_genres.name;
