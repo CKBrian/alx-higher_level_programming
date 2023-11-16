@@ -6,11 +6,11 @@ ALTER DATABASE
 	COLLATE = utf8mb4_unicode_ci;
 ALTER TABLE
     first_table
-	-- CONVERT TO CHARACTER SET utf8mb4
+	CONVERT TO CHAR SET utf8mb4
 	COLLATE utf8mb4_unicode_ci;
 ALTER TABLE
     first_table
 	MODIFY name
 	VARCHAR(256)
-	-- CHARACTER SET utf8mb4
+	CHAR SET utf8mb4
 	COLLATE utf8mb4_unicode_ci;
