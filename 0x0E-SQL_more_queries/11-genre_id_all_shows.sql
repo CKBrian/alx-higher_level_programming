@@ -1,5 +1,9 @@
--- creates the table force_name on MySQL server.
--- id INT
--- name VARCHAR(256) can’t be null
--- The database name passed as an argument of the mysql command
-CREATE TABLE IF NOT EXISTS force_name (id INT, name VARCHAR(256) NOT NULL);
+-- lists all shows contained in the database hbtn_0d_tvshows.
+-- Each record displays: tv_shows.title - tv_show_genres.genre_id
+-- Results sorted in ascending order by tv_shows.title and tv_show_genres.genre_id
+-- If a show doesn’t have a genre, displays NULL
+SELECT tv_shows.title, tv_show_genres.genre_id
+FROM tv_shows
+LEFT JOIN tv_show_genres
+ON tv_shows.id = tv_show_genres.show_id
+ORDER BY tv_shows.title, tv_show_genres.genre_id;
