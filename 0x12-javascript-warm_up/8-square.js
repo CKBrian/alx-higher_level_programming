@@ -7,7 +7,7 @@ print “Missing size” if the first argument can’t be converted to an intege
  */
 const sideLength = Number(process.argv[2]);
 
-if (sideLength > 0 && typeof (sideLength) === 'number' && !isNaN(sideLength)) {
+if (!isNaN(sideLength)) {
   for (let i = 0; i < sideLength; i++) {
     console.log('x'.repeat(sideLength));
   }
