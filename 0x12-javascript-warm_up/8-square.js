@@ -7,9 +7,9 @@ print “Missing size” if the first argument can’t be converted to an intege
  */
 const sideLength = parseInt(process.argv[2]);
 
-if (!isNaN(sideLength)) {
+if (isNaN(sideLength)) {
   for (let i = 0; i < sideLength; i++) {
-    console.log('x'.repeat(sideLength));
+    console.log('X'.repeat(sideLength));
   }
 } else {
   console.log('Missing size');
