@@ -1,21 +1,31 @@
 #!/usr/bin/node
 /* imports a dictionary of occurrences by user id and computes a dictionary of user ids by occurrence. */
 const fs = require('fs');
-const strArr = [];
-fileA = process.argv[2];
-fileB = process.argv[3];
-fileC = process.argv[4];
-fs.readFile('fileA', 'utf8', (err, data) => {
-  if (!err) {
-    strArr[0] = data;
+const fileA = process.argv[2];
+const fileB = process.argv[3];
+const fileC = process.argv[4];
+fs.readFile(fileA, 'utf8', (err, data) => {
+  if (err) {
+    console.log(err);
   }
+
+  fs.writeFile(fileC, data, (err) => {
+    if (err) {
+      console.log(err);
+    }
+  }
+  );
 }
 );
-fs.readFile('fileB', 'utf8', (err, data) => {
-  if (!err) {
-    strArr[1] = data;
+fs.readFile(fileB, 'utf8', (err, data) => {
+  if (err) {
+    console.log(err);
   }
+
+  fs.writeFile(fileC, data, { encoding: 'utf8', flag: 'a' }, (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
 }
 );
-const res = strArr.join('\n');
-fs.writeFile(fileC, res);
