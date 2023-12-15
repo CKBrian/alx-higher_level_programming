@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-# lists all states from the database hbtn_0e_0_usa
-# Uses the module MySQLdb (import MySQLdb) to connect to  MySQL
-# server on localhost at port 3306
+"""
+ defines a module that lists all states from the database hbtn_0e_0_usa and
+ Uses the module MySQLdb (import MySQLdb) to connect to  MySQL
+ server on localhost at port 3306
+ """
 import MySQLdb
 import sys
 
