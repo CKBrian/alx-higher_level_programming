@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
  defines a module that lists all states from the database hbtn_0e_0_usa and
  Uses the module MySQLdb (import MySQLdb) to connect to  MySQL
@@ -6,6 +7,7 @@
  """
 import MySQLdb
 import sys
+
 
 if __name__ == "__main__":
     username = sys.argv[1]
