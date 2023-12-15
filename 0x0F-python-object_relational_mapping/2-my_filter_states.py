@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     cursor = conn.cursor()
     query = "SELECT * FROM states WHERE name = '{}'" \
-            "ORDER BY states.id ASC".format(state_name)
+            "COLLATE utf8_bin ORDER BY states.id ASC".format(state_name)
     cursor.execute(query)
 
     state_rows = cursor.fetchall()
