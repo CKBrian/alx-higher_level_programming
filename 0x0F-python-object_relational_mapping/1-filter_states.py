@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     state_rows = cursor.fetchall()
     for state in state_rows:
-        print("{}, '{}'".format(state[0], state[1]))
+        print("({}, '{}')".format(state[0], state[1]))
 
     cursor.close()
     conn.close()
