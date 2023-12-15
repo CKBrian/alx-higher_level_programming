@@ -17,8 +17,8 @@ if __name__ == "__main__":
                            passwd=password, db=db_name)
 
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM states WHERE states.name LIKE 'N%'"
-                   "ORDER BY states.id ASC")
+    cursor.execute("SELECT * FROM states WHERE name REGEXP '^[N].*'"
+                   "COLLATE utf8_bin ORDER BY states.id ASC")
 
     state_rows = cursor.fetchall()
     for state in state_rows:
