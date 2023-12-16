@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-Defines a module that  takes in an argument and displays all
-values in the states table of hbtn_0e_0_usa where name matches the argument
+Defines a module that lists all cities from the database hbtn_0e_4_usa
+
 """
 import MySQLdb
 import sys
