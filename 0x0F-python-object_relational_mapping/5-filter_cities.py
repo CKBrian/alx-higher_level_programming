@@ -24,8 +24,9 @@ if __name__ == "__main__":
     cursor.execute(query, (state_name, ))
 
     city_rows = cursor.fetchall()
-    for city in city_rows:
-        print("({},)".format(city[0]))
+    names = [city[0] for city in city_rows]
+    names = ", ".join(names)
+    print("{}".format(names))
 
     cursor.close()
     conn.close()
