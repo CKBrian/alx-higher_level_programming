@@ -2,16 +2,17 @@
 """
 Defines a module which contains class defination of a City
 """
-from sqlalchemy import Column, String, Integer
-from sqlalchemy.ext.declarative import declarative_base
+from model_state import State, Base
+from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy.orm import relationship
 
-
-Base = declarative_base()
 
 class City(Base):
-	""" defines a City class that inherits from Base class"""
-	__tablename__ = "cities"
+    """ defines a City class that inherits from Base class"""
+    __tablename__ = "cities"
 
-	id = Column(Integer, autoincrement=True, nullable=False, Primary_Key=True, unique=True)
-	name = Column(String(128), nullable=False)
-	state_id = Column(Integer, nullable=False, ForeignKey=("states.id"))
+    id = Column(Integer, autoincrement=True, nullable=False,
+                primary_key=True, unique=True)
+    name = Column(String(128), nullable=False)
+    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
+    state = relationship(State)
