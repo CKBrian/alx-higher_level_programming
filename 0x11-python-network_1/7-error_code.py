@@ -11,7 +11,7 @@ if __name__ == "__main__":
     displays the body of the response"""
     url = sys.argv[1]
     try:
-	    resp = request.get(url)
+        resp = request.get(url)
         print(resp.text)
     except HTTPError as e:
         print("Error code: {}".format(e.code))
