@@ -11,4 +11,5 @@ if __name__ == "__main__":
     of the X-Request-Id variable found in the header of the response."""
     url = sys.argv[1]
     resp = requests.get(url)
-    print(resp.headers['X-Request-Id'])
+    if 'X-Request-Id' in resp.headers:
+        print(resp.headers['X-Request-Id'])
