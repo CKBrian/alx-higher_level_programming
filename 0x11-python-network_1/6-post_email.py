@@ -3,7 +3,6 @@
 the passed URL with the email as a parameter, and displays the body of the
 response"""
 import requests
-from urllib import parse
 import sys
 
 
@@ -14,4 +13,4 @@ if __name__ == "__main__":
     email = sys.argv[2]
     params = {'email': email}
     resp = requests.post(url, params)
-    print()
+    print(resp.text)
