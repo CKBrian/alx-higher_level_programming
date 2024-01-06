@@ -11,7 +11,7 @@ def request_url(letter=""):
     try:
         url = "http://0.0.0.0:5000/search_user"
         params = {'q': letter}
-        resp = requests.post(url, params)
+        resp = requests.post(url, params).json()
         if len(resp.headers) == 0:
             print("No result")
         else:
