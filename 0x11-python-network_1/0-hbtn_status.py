@@ -4,6 +4,7 @@ from urllib import request
 
 
 if __name__ == "__main__":
+    """fetches information from https://alx-intranet.hbtn.io/status"""
     resp = request.urlopen("https://alx-intranet.hbtn.io/status")
     data = resp.read()
     print("Body response:")
