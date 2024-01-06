@@ -9,7 +9,7 @@ def request_url(letter=""):
     """takes in a letter and sends a POST request to
     http://0.0.0.0:5000/search_user with the letter  """
     try:
-        url = http://0.0.0.0:5000/search_user
+        url = "http://0.0.0.0:5000/search_user"
         params = {'q': letter}
         resp = requests.post(url, params)
         if len(resp.headers) == 0:
