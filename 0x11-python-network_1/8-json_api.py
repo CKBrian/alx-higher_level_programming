@@ -17,7 +17,7 @@ def request_url(letter=""):
         else:
             print("[{}] {}".format(resp.get('id'), resp.get('name')))
     except ValueError:
-        print(" Not a valid JSON")
+        print("Not a valid JSON")
 
 
 if __name__ == "__main__":
