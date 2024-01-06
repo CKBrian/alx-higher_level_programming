@@ -12,9 +12,12 @@ if __name__ == "__main__":
 
     url = "https://api.github.com/repos/{}/{}/commits".format(user, repo)
     commits = requests.get(url).json()
-    for i in range(10):
-        if not isinstance(commits, list):
-            continue
-        author = commits[i].get('commit').get('author').get('name')
-        sha = commits[i].get('sha')
-        print("{}: {}".format(sha, author))
+    if not isinstance(commits, list):
+        continue
+    try:
+        for i in range(100):
+            author = commits[i].get('commit').get('author').get('name')
+            sha = commits[i].get('sha')
+            print("{}: {}".format(sha, author))
+    except IndexError:
+        pass
