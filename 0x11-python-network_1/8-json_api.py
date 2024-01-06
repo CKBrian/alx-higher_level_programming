@@ -12,7 +12,7 @@ def request_url(letter=""):
         url = "http://0.0.0.0:5000/search_user"
         params = {'q': letter}
         resp = requests.post(url, params).json()
-        if len(resp.headers) == 0:
+        if len(resp) == 0:
             print("No result")
         else:
             print("[{}] {}".format(resp.get('id'), resp.get('name')))
