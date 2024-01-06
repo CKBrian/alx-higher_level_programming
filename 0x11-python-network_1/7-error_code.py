@@ -2,7 +2,7 @@
 """Defines a module that takes in a URL, sends a request to the URL and
 displays the body of the response (decoded in utf-8)."""
 import requests
-from requests.exceptions import HTTPEerror
+from requests.exceptions import HTTPError
 import sys
 
 
