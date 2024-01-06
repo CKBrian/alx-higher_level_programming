@@ -21,7 +21,7 @@ def request_url(letter=""):
 
 
 if __name__ == "__main__":
-    if (sys.argv[1]):
+    if len(sys.argv) > 1:
         request_url(sys.argv[1])
     else:
         request_url()
