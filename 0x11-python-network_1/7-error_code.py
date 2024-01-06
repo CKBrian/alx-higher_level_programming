@@ -17,3 +17,6 @@ if __name__ == "__main__":
         code = e.response.status_code
         if code >= 400:
             print("Error code: {}".format(code))
+        else:
+            print(resp.text)
+
