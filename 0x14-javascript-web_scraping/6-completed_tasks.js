@@ -17,8 +17,7 @@ request(url, (err, resp, body) => {
     const uId = i;
     if (i === 1) {
       console.log(`{ '${uId}': ${userList(list, uId)},`);
-    }
-    if (i === 10) {
+    } else if (i === 10) {
       console.log(`'${uId}': ${userList(list, uId)} }`);
     } else {
       console.log(`'${uId}': ${userList(list, uId)},`);
