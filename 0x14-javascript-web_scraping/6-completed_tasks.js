@@ -15,7 +15,6 @@ request(url, (err, resp, body) => {
   const list = JSON.parse(body);
   for (let i = 1; i < 11; i++) {
     const uId = i;
-	//{ '1': 11,
     if (i === 1) {
       console.log(`{\t'${uId}': ${userList(list, uId)},`);
     } else if (i === 10) {
