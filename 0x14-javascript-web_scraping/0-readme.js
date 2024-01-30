@@ -1,7 +1,9 @@
 #!/usr/bin/node
 
 const fs = require('fs');
-fs.readFile('cisfun', 'utf8', (err, data) => {
+const filename = process.argv[2];
+console.log(filename);
+fs.readFile(filename, 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
