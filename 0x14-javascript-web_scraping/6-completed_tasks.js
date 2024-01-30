@@ -16,11 +16,11 @@ request(url, (err, resp, body) => {
   for (let i = 1; i < 11; i++) {
     const uId = i;
     if (i === 1) {
-      console.log(`{\t'${uId}': ${userList(list, uId)},`);
+      console.log(`{\n  '${uId}': ${userList(list, uId)},`);
     } else if (i === 10) {
-      console.log(`\t'${uId}': ${userList(list, uId)}\t}`);
+      console.log(`  '${uId}': ${userList(list, uId)}\n}`);
     } else {
-      console.log(`\t'${uId}': ${userList(list, uId)},`);
+      console.log(`  '${uId}': ${userList(list, uId)},`);
     }
   }
 });
